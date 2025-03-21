@@ -6,6 +6,17 @@
 [![Docker][docker-badge]][docker-url]
 [![License: MIT][license-badge]][license-url]
 
+[node-badge]: https://img.shields.io/badge/node-18.x-brightgreen.svg
+[node-url]: https://nodejs.org/
+[nestjs-badge]: https://img.shields.io/badge/nestjs-9.x-red.svg
+[nestjs-url]: https://nestjs.com/
+[typescript-badge]: https://img.shields.io/badge/typescript-4.x-blue.svg
+[typescript-url]: https://www.typescriptlang.org/
+[docker-badge]: https://img.shields.io/badge/docker-compose-blue.svg
+[docker-url]: https://www.docker.com/
+[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[license-url]: #license
+
 A simple URL shortener built with **NestJS** (TypeScript) for the backend and **React** (TypeScript) for the frontend.
 
 ## Table of Contents
