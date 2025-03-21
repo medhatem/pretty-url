@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # Postgres Database
+  db:
+    image: postgres:14-alpine
+    container_name: url_shortener_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: urlshort
+    ports:
+      - "5432:5432"
+
+  # NestJS Server
+  server:
+    build: 
+      context: ./pretty-url-api
+      dockerfile: Dockerfile
+    container_name: url_shortener_server
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: urlshort
+
+  # React Frontend
+  web:
+    build:
+      context: ./pretty-url-react
+      dockerfile: Dockerfile
+    container_name: url_shortener_web
+    restart: always
+    ports:
+      - "3001:3000"
+    depends_on:
+      - server
